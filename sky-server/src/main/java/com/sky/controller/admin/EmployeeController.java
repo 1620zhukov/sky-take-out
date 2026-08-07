@@ -87,4 +87,16 @@ public class EmployeeController {
         employeeService.changeStatus(id,status);
         return Result.success();
     }
+    @GetMapping("/{id}")
+    public Result<Employee> queryById(@PathVariable Long id){
+        Employee employee = employeeService.queryById(id);
+        return Result.success(employee);
+    }
+
+    @PutMapping
+    public Result changeInfo(@RequestBody EmployeeDTO employeeDTO){
+        employeeService.changeInfo(employeeDTO);
+        return Result.success();
+    }
+
 }
